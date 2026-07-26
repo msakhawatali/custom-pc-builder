@@ -1,6 +1,10 @@
-def main():
-    print("Hello from backend!")
+from fastapi import FastAPI
 
+app = FastAPI(
+    title="Custom PC Builder API",
+    version="1.0.0",
+)
 
-if __name__ == "__main__":
-    main()
+@app.get("/")
+async def root():
+    return {"message" : "Custom PC Builder API is running successfully."}
