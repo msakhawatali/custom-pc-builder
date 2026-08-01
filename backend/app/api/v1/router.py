@@ -4,7 +4,10 @@ api_router = APIRouter()
 
 @api_router.get("/v1/health")
 def health():
-    return {"health" : "My Health is Good"}
+    return {
+    "status": "ok",
+    "service": "Custom PC Builder API"
+    }
 
 
 # Future feature routers will be included here:
