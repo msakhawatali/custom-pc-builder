@@ -9,5 +9,9 @@ engine = create_engine(
     echo=True,
 )
 
-sessionlocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
+SessionLocal = sessionmaker(
+    autoflush=False, 
+    autocommit=False, 
+    bind=engine,
+    )
 
