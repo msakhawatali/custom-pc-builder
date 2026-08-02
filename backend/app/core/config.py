@@ -4,8 +4,10 @@ class Settings(BaseSettings):
     APP_NAME: str = "Custom PC Builder API"
     APP_ENV: str = "development"
     DEBUG: bool = True
+    DATABASE_URL: str
 
     class Config:
         env_file = ".env"
+        env_file_encoding = "utf-8"
 
 settings = Settings()
