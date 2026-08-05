@@ -6,7 +6,7 @@ class Product(Base):
     __tablename__ = "products"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=True)
+    name = Column(String, nullable=False)
     slug = Column(String, unique=True, nullable=False, index=True)
     description = Column(String, nullable=True)
     sku = Column(String, unique=True, nullable=False, index=True)
