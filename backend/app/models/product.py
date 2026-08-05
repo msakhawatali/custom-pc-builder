@@ -2,8 +2,8 @@ from app.db.base import Base
 from sqlalchemy import Column, Integer, String, Boolean, Numeric, func, DateTime
 
 
-class Product():
-    __tablename__ = "product"
+class Product(Base):
+    __tablename__ = "products"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=True)
