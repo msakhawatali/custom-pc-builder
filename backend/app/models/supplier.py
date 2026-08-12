@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, func
-from app.database import Base
+from app.db import Base
 
 
 class Supplier(Base):
