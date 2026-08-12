@@ -5,5 +5,6 @@ from app.models.product_category import ProductCategory
 from app.models.brand import Brand
 from app.models.supplier import Supplier
 from app.models.product_image import ProductImage
+from app.models.product_review import ProductReview
 
-__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage"]
+__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview"]
