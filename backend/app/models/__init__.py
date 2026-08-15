@@ -7,5 +7,6 @@ from app.models.supplier import Supplier
 from app.models.product_image import ProductImage
 from app.models.product_review import ProductReview
 from app.models.customer_address import CustomerAddress
+from app.models.cart import Cart
 
-__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress"]
+__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart"]
