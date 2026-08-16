@@ -9,5 +9,6 @@ from app.models.product_review import ProductReview
 from app.models.customer_address import CustomerAddress
 from app.models.cart import Cart
 from app.models.cart_item import CartItem
+from app.models.wishlist import Wishlist
 
-__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem"]
+__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist"]
