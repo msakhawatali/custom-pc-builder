@@ -13,5 +13,6 @@ from app.models.wishlist import Wishlist
 from app.models.wishlist_item import WishlistItem
 from app.models.order import Order
 from app.models.order_item import OrderItem
+from app.models.payment import Payment
 
-__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem"]
+__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem", "Payment"]
