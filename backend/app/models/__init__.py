@@ -15,5 +15,6 @@ from app.models.order import Order
 from app.models.order_item import OrderItem
 from app.models.payment import Payment
 from app.models.coupon import Coupon
+from app.models.coupon_usage import CouponUsage
 
-__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem", "Payment", "Coupon"]
+__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem", "Payment", "Coupon", "CouponUsage"]
