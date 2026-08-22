@@ -20,5 +20,6 @@ from app.models.product_compare import ProductCompare
 from app.models.saved_build import SavedBuild
 from app.models.saved_build_item import SavedBuildItem
 from app.models.product_specification import ProductSpecification
+from app.models.product_compatibility import ProductCompatibility
 
-__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem", "Payment", "Coupon", "CouponUsage", "ProductCompare", "SavedBuild", "SavedBuildItem", "ProductSpacification"]
+__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem", "Payment", "Coupon", "CouponUsage", "ProductCompare", "SavedBuild", "SavedBuildItem", "ProductSpacification", "ProductCompatibility"]
