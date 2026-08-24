@@ -22,5 +22,6 @@ from app.models.saved_build_item import SavedBuildItem
 from app.models.product_specification import ProductSpecification
 from app.models.product_compatibility import ProductCompatibility
 from app.models.product_inventory import ProductInventory
+from app.models.product_variant import ProductVariant
 
-__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem", "Payment", "Coupon", "CouponUsage", "ProductCompare", "SavedBuild", "SavedBuildItem", "ProductSpecification", "ProductCompatibility", "ProductInventory"]
+__all__ = ["Base", "User", "Product", "ProductCategory", "Brand", "Supplier", "ProductImage", "ProductReview", "CustomerAddress", "Cart", "CartItem", "Wishlist", "WishlistItem", "Order", "OrderItem", "Payment", "Coupon", "CouponUsage", "ProductCompare", "SavedBuild", "SavedBuildItem", "ProductSpecification", "ProductCompatibility", "ProductInventory", "ProductVariant"]
