@@ -9,7 +9,6 @@ class ProductReviewBase(BaseModel):
     rating: int = Field(ge=1, le=5)
     title: Optional[str] = None
     comment: Optional[str] = None
-    is_approved: bool = False
 
 
 class ProductReviewCreate(ProductReviewBase):
@@ -17,12 +16,9 @@ class ProductReviewCreate(ProductReviewBase):
 
 
 class ProductReviewUpdate(BaseModel):
-    product_id: Optional[int] = None
-    user_id: Optional[int] = None
     rating: Optional[int] = Field(default=None, ge=1, le=5)
     title: Optional[str] = None
     comment: Optional[str] = None
-    is_approved: Optional[bool] = None
 
 
 class ProductReviewRead(ProductReviewBase):
