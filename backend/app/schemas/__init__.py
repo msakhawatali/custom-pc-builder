@@ -1,6 +1,7 @@
 from app.schemas.product import ProductBase, ProductCreate, ProductUpdate, ProductRead
 from app.schemas.brand import BrandBase, BrandCreate, BrandUpdate, BrandRead
 from app.schemas.supplier import SupplierBase, SupplierCreate, SupplierUpdate, SupplierRead
+from app.schemas.product_image import ProductImageBase, ProductImageCreate, ProductImageUpdate, ProductImageRead
 from app.schemas.product_category import (
     ProductCategoryBase,
     ProductCategoryCreate,
@@ -8,4 +9,4 @@ from app.schemas.product_category import (
     ProductCategoryRead,
 )
 
-__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",]
+__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead",]
