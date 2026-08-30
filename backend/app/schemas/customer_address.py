@@ -4,7 +4,6 @@ from pydantic import BaseModel, ConfigDict
 
 
 class CustomerAddressBase(BaseModel):
-    user_id: int
     label: Optional[str] = None
     full_name: str
     phone: str
@@ -22,7 +21,6 @@ class CustomerAddressCreate(CustomerAddressBase):
 
 
 class CustomerAddressUpdate(BaseModel):
-    user_id: Optional[int] = None
     label: Optional[str] = None
     full_name: Optional[str] = None
     phone: Optional[str] = None
@@ -39,5 +37,6 @@ class CustomerAddressRead(CustomerAddressBase):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
+    user_id: int
     created_at: datetime
     updated_at: datetime
