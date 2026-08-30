@@ -9,5 +9,11 @@ from app.schemas.product_category import (
     ProductCategoryUpdate,
     ProductCategoryRead,
 )
+from app.schemas.customer_address import (
+    CustomerAddressBase,
+    CustomerAddressCreate,
+    CustomerAddressUpdate,
+    CustomerAddressRead,
+)
 
-__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead",]
+__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead",]
