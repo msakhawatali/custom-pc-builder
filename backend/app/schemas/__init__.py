@@ -5,6 +5,7 @@ from app.schemas.product_image import ProductImageBase, ProductImageCreate, Prod
 from app.schemas.product_review import ProductReviewBase, ProductReviewCreate, ProductReviewUpdate, ProductReviewRead
 from app.schemas.cart import CartBase, CartCreate, CartUpdate, CartRead
 from app.schemas.cart_item import CartItemBase, CartItemCreate, CartItemUpdate, CartItemRead
+from app.schemas.wishlist import WishlistBase, WishlistCreate, WishlistUpdate, WishlistRead
 from app.schemas.product_category import (
     ProductCategoryBase,
     ProductCategoryCreate,
@@ -18,4 +19,4 @@ from app.schemas.customer_address import (
     CustomerAddressRead,
 )
 
-__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead",]
+__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead", "WishlistBase", "WishlistCreate", "WishlistUpdate", "WishlistRead",]
