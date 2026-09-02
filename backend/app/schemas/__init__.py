@@ -6,6 +6,8 @@ from app.schemas.product_review import ProductReviewBase, ProductReviewCreate, P
 from app.schemas.cart import CartBase, CartCreate, CartUpdate, CartRead
 from app.schemas.cart_item import CartItemBase, CartItemCreate, CartItemUpdate, CartItemRead
 from app.schemas.wishlist import WishlistBase, WishlistCreate, WishlistUpdate, WishlistRead
+from app.schemas.order import OrderBase, OrderCreate, OrderUpdate, OrderRead
+
 from app.schemas.product_category import (
     ProductCategoryBase,
     ProductCategoryCreate,
@@ -25,4 +27,4 @@ from app.schemas.wishlist_item import (
     WishlistItemRead,
 )
 
-__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead", "WishlistBase", "WishlistCreate", "WishlistUpdate", "WishlistRead", "WishlistItemBase", "WishlistItemCreate", "WishlistItemUpdate", "WishlistItemRead",]
+__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead", "WishlistBase", "WishlistCreate", "WishlistUpdate", "WishlistRead", "WishlistItemBase", "WishlistItemCreate", "WishlistItemUpdate", "WishlistItemRead", "OrderBase", "OrderCreate", "OrderUpdate", "OrderRead",]
