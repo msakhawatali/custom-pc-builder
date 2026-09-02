@@ -18,5 +18,11 @@ from app.schemas.customer_address import (
     CustomerAddressUpdate,
     CustomerAddressRead,
 )
+from app.schemas.wishlist_item import (
+    WishlistItemBase,
+    WishlistItemCreate,
+    WishlistItemUpdate,
+    WishlistItemRead,
+)
 
-__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead", "WishlistBase", "WishlistCreate", "WishlistUpdate", "WishlistRead",]
+__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead", "WishlistBase", "WishlistCreate", "WishlistUpdate", "WishlistRead", "WishlistItemBase", "WishlistItemCreate", "WishlistItemUpdate", "WishlistItemRead",]
