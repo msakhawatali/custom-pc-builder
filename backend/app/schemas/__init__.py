@@ -12,7 +12,12 @@ from app.schemas.payment import PaymentBase, PaymentCreate, PaymentUpdate, Payme
 from app.schemas.coupon import CouponBase, CouponCreate, CouponUpdate, CouponRead
 from app.schemas.coupon_usage import CouponUsageBase, CouponUsageCreate, CouponUsageUpdate, CouponUsageRead
 
-
+from app.schemas.product_compare import (
+    ProductCompareBase,
+    ProductCompareCreate,
+    ProductCompareUpdate,
+    ProductCompareRead,
+)
 from app.schemas.product_category import (
     ProductCategoryBase,
     ProductCategoryCreate,
@@ -32,4 +37,4 @@ from app.schemas.wishlist_item import (
     WishlistItemRead,
 )
 
-__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead", "WishlistBase", "WishlistCreate", "WishlistUpdate", "WishlistRead", "WishlistItemBase", "WishlistItemCreate", "WishlistItemUpdate", "WishlistItemRead", "OrderBase", "OrderCreate", "OrderUpdate", "OrderRead", "OrderItemBase", "OrderItemCreate", "OrderItemUpdate", "OrderItemRead", "PaymentBase", "PaymentCreate", "PaymentUpdate", "PaymentRead", "CouponBase", "CouponCreate", "CouponUpdate", "CouponRead","CouponUsageBase", "CouponUsageCreate", "CouponUsageUpdate", "CouponUsageRead",]
+__all__ = ["ProductBase", "ProductCreate", "ProductUpdate", "ProductRead", "ProductCategoryBase", "ProductCategoryCreate", "ProductCategoryUpdate", "ProductCategoryRead", "BrandBase", "BrandCreate", "BrandUpdate", "BrandRead", "SupplierBase", "SupplierCreate", "SupplierUpdate", "SupplierRead",  "ProductImageBase", "ProductImageCreate", "ProductImageUpdate", "ProductImageRead", "ProductReviewBase", "ProductReviewCreate", "ProductReviewUpdate", "ProductReviewRead", "CustomerAddressBase", "CustomerAddressCreate", "CustomerAddressUpdate", "CustomerAddressRead", "CartBase", "CartCreate", "CartUpdate", "CartRead", "CartItemBase", "CartItemCreate", "CartItemUpdate", "CartItemRead", "WishlistBase", "WishlistCreate", "WishlistUpdate", "WishlistRead", "WishlistItemBase", "WishlistItemCreate", "WishlistItemUpdate", "WishlistItemRead", "OrderBase", "OrderCreate", "OrderUpdate", "OrderRead", "OrderItemBase", "OrderItemCreate", "OrderItemUpdate", "OrderItemRead", "PaymentBase", "PaymentCreate", "PaymentUpdate", "PaymentRead", "CouponBase", "CouponCreate", "CouponUpdate", "CouponRead","CouponUsageBase", "CouponUsageCreate", "CouponUsageUpdate", "CouponUsageRead", "ProductCompareBase", "ProductCompareCreate", "ProductCompareUpdate", "ProductCompareRead",]
