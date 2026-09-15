@@ -1,0 +1,1 @@
+from app.api.v1.endpoints.product_category import router as product_category_router
