@@ -46,6 +46,9 @@ def update_category(category_id: int, payload: ProductCategoryUpdate, db: Sessio
     for field, value in update_data.items():
         setattr(category, field, value)
 
+    if "name" in update_data:
+        category.slug = slugify(update_data["name"])
+
     db.commit()
     db.refresh(category)
     return category
