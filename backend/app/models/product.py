@@ -1,5 +1,5 @@
 from app.db.base import Base
-from sqlalchemy import Column, Integer, String, Boolean, Numeric, func, DateTime
+from sqlalchemy import Column, Integer, String, Boolean, Numeric, func, DateTime, ForeignKey
 
 
 class Product(Base):
@@ -10,10 +10,11 @@ class Product(Base):
     slug = Column(String, unique=True, nullable=False, index=True)
     description = Column(String, nullable=True)
     sku = Column(String, unique=True, nullable=False, index=True)
-    category = Column(String, nullable=False)
-    brand = Column(String, nullable=True)
+    category_id = Column(Integer, ForeignKey("product_categories.id"), nullable=False, index=True)
+    brand_id = Column(Integer, ForeignKey("brands.id"), nullable=True, index=True)
+    supplier_id = Column(Integer, ForeignKey("suppliers.id"), nullable=True, index=True)
     price = Column(Numeric(10, 2), nullable=False)
     stock_quantity = Column(Integer, default=0, nullable=False)
     is_active = Column(Boolean, default=True, nullable=False)
-    create_at = Column(DateTime(timezone=True), server_default=func.now())
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
