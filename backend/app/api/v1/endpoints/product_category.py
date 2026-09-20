@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from app.utils.text import slugify
 from sqlalchemy.orm import Session
-import re
 
 from app.db.dependencies import get_db
 from app.models import ProductCategory
