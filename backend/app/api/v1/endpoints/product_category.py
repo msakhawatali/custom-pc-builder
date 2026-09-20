@@ -1,15 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from app.utils.text import slugify
 from sqlalchemy.orm import Session
 import re
 
 from app.db.dependencies import get_db
 from app.models import ProductCategory
 from app.schemas import ProductCategoryCreate, ProductCategoryUpdate, ProductCategoryRead
-
-def slugify(text: str) -> str:
-    text = text.lower().strip()
-    text = re.sub(r"[^\w\s-]", "", text)
-    return re.sub(r"[\s_]+", "-", text)
 
 router = APIRouter(prefix="/categories", tags=["Product Categories"])
 
