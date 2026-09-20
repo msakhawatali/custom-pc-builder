@@ -1,6 +1,5 @@
-import re
-
 from fastapi import APIRouter, Depends, HTTPException, status
+from app.utils.text import slugify
 from sqlalchemy.orm import Session
 
 from app.db.dependencies import get_db
@@ -8,12 +7,6 @@ from app.models import Brand
 from app.schemas import BrandCreate, BrandUpdate, BrandRead
 
 router = APIRouter(prefix="/brands", tags=["Brands"])
-
-
-def slugify(text: str) -> str:
-    text = text.lower().strip()
-    text = re.sub(r"[^\w\s-]", "", text)
-    return re.sub(r"[\s_]+", "-", text)
 
 
 @router.post("", response_model=BrandRead, status_code=status.HTTP_201_CREATED)
