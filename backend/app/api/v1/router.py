@@ -6,6 +6,8 @@ from app.api.v1.endpoints.product_image import router as product_image_router
 from app.api.v1.endpoints.product_review import router as product_review_router
 from app.api.v1.endpoints.product import router as product_router
 from app.api.v1.endpoints.product_specification import router as product_specification_router
+from app.api.v1.endpoints.product_compatibility import router as product_compatibility_router
+
 
 
 api_router = APIRouter()
@@ -21,3 +23,4 @@ api_router.include_router(product_image_router)
 api_router.include_router(product_review_router)
 api_router.include_router(product_router)
 api_router.include_router(product_specification_router)
+api_router.include_router(product_compatibility_router)
