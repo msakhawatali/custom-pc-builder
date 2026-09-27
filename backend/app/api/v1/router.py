@@ -8,6 +8,8 @@ from app.api.v1.endpoints.product import router as product_router
 from app.api.v1.endpoints.product_specification import router as product_specification_router
 from app.api.v1.endpoints.product_compatibility import router as product_compatibility_router
 from app.api.v1.endpoints.product_inventory import router as product_inventory_router
+from app.api.v1.endpoints.product_variant import router as product_variant_router
+
 
 
 
@@ -27,3 +29,4 @@ api_router.include_router(product_router)
 api_router.include_router(product_specification_router)
 api_router.include_router(product_compatibility_router)
 api_router.include_router(product_inventory_router)
+api_router.include_router(product_variant_router)
