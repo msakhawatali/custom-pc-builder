@@ -11,6 +11,8 @@ from app.api.v1.endpoints.product_inventory import router as product_inventory_r
 from app.api.v1.endpoints.product_variant import router as product_variant_router
 from app.api.v1.endpoints.customer_address import router as customer_address_router
 from app.api.v1.endpoints.cart import router as cart_router
+from app.api.v1.endpoints.cart_item import router as cart_item_router
+
 
 
 
@@ -36,3 +38,4 @@ api_router.include_router(product_inventory_router)
 api_router.include_router(product_variant_router)
 api_router.include_router(customer_address_router)
 api_router.include_router(cart_router)
+api_router.include_router(cart_item_router)
