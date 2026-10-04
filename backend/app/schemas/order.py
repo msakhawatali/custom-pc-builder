@@ -16,7 +16,7 @@ class OrderBase(BaseModel):
 
 
 class OrderCreate(OrderBase):
-    pass
+    subtotal: Decimal
 
 
 class OrderUpdate(BaseModel):
