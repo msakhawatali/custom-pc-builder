@@ -17,6 +17,8 @@ from app.api.v1.endpoints.wishlist_item import router as wishlist_item_router
 from app.api.v1.endpoints.order import router as order_router
 from app.api.v1.endpoints.order_item import router as order_item_router
 from app.api.v1.endpoints.payment import router as payment_router
+from app.api.coupons import router as coupon_router
+
 
 
 
@@ -48,3 +50,4 @@ api_router.include_router(wishlist_item_router)
 api_router.include_router(order_router)
 api_router.include_router(order_item_router)
 api_router.include_router(payment_router)
+api_router.include_router(coupon_router)
