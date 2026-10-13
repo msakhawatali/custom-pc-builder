@@ -32,6 +32,7 @@ from app.api.saved_builds import router as saved_build_router
 
 
 
+
 api_router = APIRouter()
 
 @api_router.get("/health")
@@ -60,3 +61,5 @@ api_router.include_router(coupon_router)
 api_router.include_router(coupon_usage_router)
 api_router.include_router(product_compare_router)
 api_router.include_router(saved_build_router)
+api_router.include_router(coupon_usage_router)
+
