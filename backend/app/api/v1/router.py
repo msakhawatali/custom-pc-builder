@@ -29,7 +29,6 @@ from app.api.product_compares import router as product_compare_router
 
 
 
-
 api_router = APIRouter()
 
 @api_router.get("/health")
@@ -57,3 +56,4 @@ api_router.include_router(payment_router)
 api_router.include_router(coupon_router)
 api_router.include_router(coupon_usage_router)
 api_router.include_router(product_compare_router)
+api_router.include_router(coupon_usage_router)
