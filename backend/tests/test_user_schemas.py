@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 import pytest
 from pydantic import ValidationError
@@ -30,7 +30,7 @@ def test_admin_field_rejected():
 
 def test_user_read_hides_password_hash():
     orm_user = User(id=1, first_name="Ali", last_name="Khan", email="ali@example.com",
-                    password_hash="$argon2...", is_active=True, created_at=datetime.utcnow())
+                    password_hash="$argon2...", is_active=True, created_at=datetime.now(timezone.utc))
     data = UserRead.model_validate(orm_user).model_dump()
     assert "password" not in data
     assert "password_hash" not in data
