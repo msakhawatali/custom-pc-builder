@@ -6,14 +6,17 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "alembic>=1.20.0",
+    "email-validator>=2.3.0",
     "fastapi[standard]>=0.140.0",
     "psycopg2-binary>=2.9.13",
+    "pwdlib[argon2]>=0.3.1",
     "pydantic-settings>=2.14.2",
     "sqlalchemy>=2.0.51",
 ]
 
 [dependency-groups]
 dev = [
+    "pytest>=9.1.1",
     "ruff>=0.16.0",
 ]
 
@@ -61,3 +64,6 @@ quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
