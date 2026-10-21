@@ -6,8 +6,8 @@ from sqlalchemy.pool import StaticPool
 
 from app.db.base import Base
 from app.db.dependencies import get_db
-from app.main import app
-import app.models  # noqa: F401  (sab models register hon)
+from app.main import app as fastapi_app
+from app import models as _models 
 
 engine = create_engine(
     "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
@@ -26,7 +26,7 @@ def client():
         finally:
             db.close()
 
-    app.dependency_overrides[get_db] = override_get_db
-    yield TestClient(app)
-    app.dependency_overrides.clear()
+    fastapi_app.dependency_overrides[get_db] = override_get_db
+    yield TestClient(fastapi_app)
+    fastapi_app.dependency_overrides.clear()
     Base.metadata.drop_all(bind=engine)

@@ -1,5 +1,5 @@
-REGISTER = "/v1/auth/register"
-LOGIN = "/v1/auth/login"
+REGISTER = "/api/auth/register"
+LOGIN = "/api/auth/login"
 
 USER = {
     "first_name": "Ali",
