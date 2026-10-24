@@ -6,6 +6,7 @@ from app.core.security import hash_password, verify_password
 from app.db.dependencies import get_db
 from app.models import User
 from app.schemas import Token, UserCreate, UserLogin, UserRead
+from app.api.dependencies import get_current_user
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
@@ -37,3 +38,8 @@ def login(payload: UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Account is inactive")
 
     return Token(access_token=create_access_token(user.id))
+
+
+@router.get("/me", response_model=UserRead)
+def read_current_user(current_user: User = Depends(get_current_user)):
+    return current_user
