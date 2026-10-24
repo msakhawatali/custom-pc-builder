@@ -30,6 +30,10 @@ def register_and_login(client) -> str:
 
     return login_response.json()["access_token"]
 
+    client.post(REGISTER, json=USER)
+    r = client.post(LOGIN, json={"email": USER["email"], "password": USER["password"]})
+    return r.json()["access_token"]
+
 
 def auth(token):
     return {"Authorization": f"Bearer {token}"}

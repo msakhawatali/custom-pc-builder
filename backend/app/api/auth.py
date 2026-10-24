@@ -7,6 +7,7 @@ from app.core.security import hash_password, verify_password
 from app.db.dependencies import get_db
 from app.models import User
 from app.schemas import Token, UserCreate, UserLogin, UserRead
+from app.api.dependencies import get_current_user
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
