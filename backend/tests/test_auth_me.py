@@ -3,10 +3,12 @@ from datetime import timedelta
 from app.core.jwt import create_access_token
 from app.models import User
 from tests.conftest import TestingSession
+from app.main import app as fastapi_app
 
-REGISTER = "/v1/auth/register"
-LOGIN = "/v1/auth/login"
-ME = "/v1/auth/me"
+
+REGISTER = fastapi_app.url_path_for("register")
+LOGIN = fastapi_app.url_path_for("login")
+ME = fastapi_app.url_path_for("read_current_user")
 
 USER = {
     "first_name": "Ali",
