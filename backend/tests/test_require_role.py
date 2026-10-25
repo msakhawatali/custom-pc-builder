@@ -1,8 +1,9 @@
 import pytest
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI
 from fastapi.testclient import TestClient
 
-from app.api.dependencies import require_role, get_db
+from app.api.dependencies import require_role
+from app.db.dependencies import get_db
 from app.core.jwt import create_access_token
 from app.core.roles import UserRole
 from app.core.security import hash_password
@@ -73,3 +74,16 @@ def test_missing_token(role_client):
 def test_invalid_token(role_client):
     r = role_client.get("/admin-only", headers={"Authorization": "Bearer bad.token"})
     assert r.status_code == 401
+
+def test_inactive_admin_forbidden(role_client):
+    uid = _make_user("admin", "inactive@example.com")
+
+    db = TestingSession()
+    db.query(User).filter(User.id == uid).update({"is_active": False})
+    db.commit()
+    db.close()
+
+    response = role_client.get("/admin-only", headers=_h(uid))
+
+    assert response.status_code == 403
+    assert response.json()["detail"] == "Account is inactive"
