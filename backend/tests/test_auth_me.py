@@ -19,6 +19,17 @@ USER = {
 
 
 def register_and_login(client) -> str:
+    register_response = client.post(REGISTER, json=USER)
+    assert register_response.status_code == 201
+
+    login_response = client.post(
+        LOGIN,
+        json={"email": USER["email"], "password": USER["password"]},
+    )
+    assert login_response.status_code == 200
+
+    return login_response.json()["access_token"]
+
     client.post(REGISTER, json=USER)
     r = client.post(LOGIN, json={"email": USER["email"], "password": USER["password"]})
     return r.json()["access_token"]
