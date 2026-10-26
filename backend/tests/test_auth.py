@@ -90,8 +90,14 @@ def test_login_invalid_credentials_same_message(client):
 
 def test_login_inactive_user(client):
     register(client)
+
     db = TestingSession()
-    db.query(User).filter(User.email == VALID_USER["email"]).update({"is_active": False})
-    db.commit()
-    db.close()
+    try:
+        db.query(User).filter(
+            User.email == VALID_USER["email"]
+        ).update({"is_active": False})
+        db.commit()
+    finally:
+        db.close()
+
     assert login(client).status_code == 403
