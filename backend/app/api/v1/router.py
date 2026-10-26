@@ -23,6 +23,7 @@ from app.api.product_compares import router as product_compare_router
 from app.api.saved_builds import router as saved_build_router
 from app.api.saved_build_items import router as saved_build_item_router
 from app.api.auth import router as auth_router
+from app.api.admin import router as admin_router
 
 
 api_router = APIRouter()
@@ -54,6 +55,6 @@ api_router.include_router(coupon_usage_router)
 api_router.include_router(product_compare_router)
 api_router.include_router(saved_build_router)
 api_router.include_router(saved_build_item_router)
-api_router.include_router(saved_build_item_router)
 api_router.include_router(coupon_usage_router)
 api_router.include_router(auth_router)
+api_router.include_router(admin_router)
