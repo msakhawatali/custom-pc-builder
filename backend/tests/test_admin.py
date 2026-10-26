@@ -9,19 +9,20 @@ DASHBOARD = fastapi_app.url_path_for("admin_dashboard")
 
 def make_user(email: str, role: str, is_active: bool = True) -> int:
     db = TestingSession()
-    user = User(
-        first_name="Test",
-        last_name="User",
-        email=email,
-        password_hash=hash_password("StrongPass123"),
-        role=role,
-        is_active=is_active,
-    )
-    db.add(user)
-    db.commit()
-    user_id = user.id
-    db.close()
-    return user_id
+    try:
+        user = User(
+            first_name="Test",
+            last_name="User",
+            email=email,
+            password_hash=hash_password("StrongPass123"),
+            role=role,
+            is_active=is_active,
+        )
+        db.add(user)
+        db.commit()
+        return user.id
+    finally:
+        db.close()
 
 
 def auth(user_id: int) -> dict:
