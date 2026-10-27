@@ -72,7 +72,11 @@ def test_admin_can_list_users(client):
 
 def test_users_list_has_expected_fields(client):
     admin_id = make_user("admin@example.com", "admin")
-    user = client.get(USERS, headers=auth(admin_id)).json()[0]
+    response = client.get(USERS, headers=auth(admin_id))
+
+    assert response.status_code == 200
+    user = response.json()[0]
+
     assert set(user) == {
         "id",
         "first_name",
@@ -85,8 +89,13 @@ def test_users_list_has_expected_fields(client):
 
 def test_users_list_never_exposes_passwords(client):
     admin_id = make_user("admin@example.com", "admin")
-    text = client.get(USERS, headers=auth(admin_id)).text
-    assert "password" not in text
+    response = client.get(USERS, headers=auth(admin_id))
+
+    assert response.status_code == 200
+
+    for user in response.json():
+        assert "password" not in user
+        assert "password_hash" not in user
 
 
 def test_regular_user_cannot_list_users(client):
@@ -108,9 +117,18 @@ def test_inactive_admin_cannot_list_users(client):
     assert client.get(USERS, headers=auth(admin_id)).status_code == 403
 
 
-def test_list_users_empty_database(client):  # `client` fixture tables banata hai
+def test_list_users_empty_database(client):
+    admin_id = make_user("admin@example.com", "admin")
+
+    # Test database mein abhi admin user maujood hai,
+    # is liye use delete kar dein.
     db = TestingSession()
     try:
-        assert admin_list_users(db=db) == []
+        db.query(User).delete()
+        db.commit()
     finally:
         db.close()
+
+    response = client.get(USERS, headers=auth(admin_id))
+
+    assert response.status_code == 401
