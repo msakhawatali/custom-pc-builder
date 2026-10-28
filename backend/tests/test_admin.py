@@ -117,18 +117,76 @@ def test_inactive_admin_cannot_list_users(client):
     assert client.get(USERS, headers=auth(admin_id)).status_code == 403
 
 
-def test_list_users_empty_database(client):
+def user_url(user_id: int) -> str:
+    return fastapi_app.url_path_for("admin_get_user", user_id=user_id)
+
+
+def test_admin_can_get_user_by_id(client):
     admin_id = make_user("admin@example.com", "admin")
+    target_id = make_user("target@example.com", "user")
+    r = client.get(user_url(target_id), headers=auth(admin_id))
+    assert r.status_code == 200
+    body = r.json()
+    assert body["id"] == target_id
+    assert body["email"] == "target@example.com"
 
-    # Test database mein abhi admin user maujood hai,
-    # is liye use delete kar dein.
-    db = TestingSession()
-    try:
-        db.query(User).delete()
-        db.commit()
-    finally:
-        db.close()
 
-    response = client.get(USERS, headers=auth(admin_id))
+def test_get_user_response_matches_user_read_fields(client):
+    admin_id = make_user("admin@example.com", "admin")
+    response = client.get(user_url(admin_id), headers=auth(admin_id))
 
-    assert response.status_code == 401
+    assert response.status_code == 200
+
+    body = response.json()
+    assert set(body) == {
+        "id",
+        "first_name",
+        "last_name",
+        "email",
+        "is_active",
+        "created_at",
+    }
+
+
+def test_get_user_never_exposes_password(client):
+    admin_id = make_user("admin@example.com", "admin")
+    response = client.get(user_url(admin_id), headers=auth(admin_id))
+
+    assert response.status_code == 200
+
+    body = response.json()
+    assert "password" not in body
+    assert "password_hash" not in body
+
+
+def test_get_nonexistent_user_returns_404(client):
+    admin_id = make_user("admin@example.com", "admin")
+    r = client.get(user_url(99999), headers=auth(admin_id))
+    assert r.status_code == 404
+
+
+def test_regular_user_cannot_get_user_by_id(client):
+    user_id = make_user("user@example.com", "user")
+    r = client.get(user_url(user_id), headers=auth(user_id))
+    assert r.status_code == 403
+
+
+def test_regular_user_gets_403_even_for_nonexistent_id(client):
+    user_id = make_user("user@example.com", "user")
+    r = client.get(user_url(99999), headers=auth(user_id))
+    assert r.status_code == 403
+
+
+def test_get_user_missing_token_returns_401(client):
+    assert client.get(user_url(1)).status_code == 401
+
+
+def test_get_user_invalid_token_returns_401(client):
+    r = client.get(user_url(1), headers={"Authorization": "Bearer not.a.valid.token"})
+    assert r.status_code == 401
+
+
+def test_inactive_admin_cannot_get_user_by_id(client):
+    admin_id = make_user("inactive@example.com", "admin", is_active=False)
+    r = client.get(user_url(admin_id), headers=auth(admin_id))
+    assert r.status_code == 403
