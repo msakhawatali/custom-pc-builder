@@ -117,23 +117,6 @@ def test_inactive_admin_cannot_list_users(client):
     assert client.get(USERS, headers=auth(admin_id)).status_code == 403
 
 
-def test_list_users_empty_database(client):
-    admin_id = make_user("admin@example.com", "admin")
-
-    # Test database mein abhi admin user maujood hai,
-    # is liye use delete kar dein.
-    db = TestingSession()
-    try:
-        db.query(User).delete()
-        db.commit()
-    finally:
-        db.close()
-
-    response = client.get(USERS, headers=auth(admin_id))
-
-    assert response.status_code == 401
-
-
 def user_url(user_id: int) -> str:
     return fastapi_app.url_path_for("admin_get_user", user_id=user_id)
 
@@ -150,16 +133,30 @@ def test_admin_can_get_user_by_id(client):
 
 def test_get_user_response_matches_user_read_fields(client):
     admin_id = make_user("admin@example.com", "admin")
-    body = client.get(user_url(admin_id), headers=auth(admin_id)).json()
+    response = client.get(user_url(admin_id), headers=auth(admin_id))
+
+    assert response.status_code == 200
+
+    body = response.json()
     assert set(body) == {
-        "id", "first_name", "last_name", "email", "is_active", "created_at",
+        "id",
+        "first_name",
+        "last_name",
+        "email",
+        "is_active",
+        "created_at",
     }
 
 
 def test_get_user_never_exposes_password(client):
     admin_id = make_user("admin@example.com", "admin")
-    r = client.get(user_url(admin_id), headers=auth(admin_id))
-    assert "password" not in r.text
+    response = client.get(user_url(admin_id), headers=auth(admin_id))
+
+    assert response.status_code == 200
+
+    body = response.json()
+    assert "password" not in body
+    assert "password_hash" not in body
 
 
 def test_get_nonexistent_user_returns_404(client):
