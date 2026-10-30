@@ -21,6 +21,11 @@ class UserRead(BaseModel):
     is_active: bool
     created_at: datetime
 
+class UserStatusUpdate(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    is_active: bool
+
 
 class UserLogin(BaseModel):
     model_config = ConfigDict(extra="forbid")
